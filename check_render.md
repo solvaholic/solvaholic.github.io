@@ -3,10 +3,10 @@ layout: default
 type: home
 ---
 
-{% if site.posts.size > 0 %}
-    {% for post in site.posts %}
-**[{{ post.title }}]({{ post.url }})** / {{ post.date | date: '%b %-d, %Y' }}
+{% if site.github.public_repositories.size > 0 %}
+    {% for repo in site.github.public_repositories %}
+**[{{ repo.name }}]({{ repo.url }})** / {{ repo.updated_at | date: '%b %-d, %Y' }}
     {% endfor %}
 {% else %}
-    No posts yet!
+    No repos yet!
 {% endif %}
