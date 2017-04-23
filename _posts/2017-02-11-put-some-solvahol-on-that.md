@@ -4,10 +4,8 @@ title: Put Some Solvahol On That
 date: 2017-02-11 11:49:41
 tags:
 ---
-The news is sensationalizing one view on an issue. Your friend just can't get past an annoying situation. Your kids are frustrated because their teachers don't make sense.
+The news is sensationalizing one view on an issue. Your friend just can't get past an annoying situation. Your kids are frustrated because their teachers don't make sense. If you care, then treat it like a problem. And put some solvahol on it.
 
-If you care, then treat it like a problem. And put some solvahol on it.
-<!-- more -->
 ## What Problem?
 When you're the person who has a problem, it can be hard to zoom out and really consider the situation. Decide up front to zoom out and help put the focus on what's important.
 
