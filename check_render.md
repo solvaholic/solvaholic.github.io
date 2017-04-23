@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: my-default
 type: home
 ---
 
