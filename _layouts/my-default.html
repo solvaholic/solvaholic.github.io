@@ -14,11 +14,11 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>01 {{ site.title | default: site.github.repository_name }}</h1>
+        <h1>02 {{ site.title | default: site.github.repository_name }}</h1>
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
         {% include sb_repolist.html %}
-        
+
         {% if site.github.is_project_page %}
           <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ github_name }}</small></a></p>
         {% endif %}
