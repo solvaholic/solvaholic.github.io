@@ -1,10 +1,6 @@
 {% if site.github.public_repositories.size > 0 %}
-    <ul>
       {% assign repos = site.github.public_repositories | sort:"updated_at" | reverse %}
       {% for repo in repos %}
-        <li>
-            {{ repo.name }}
-        </li>
+        <p>{{ repo.name }}</p>
     {% endfor %}
-    </ul>
 {% endif %}
