@@ -3,9 +3,11 @@ layout: default
 type: home
 ---
 
+<h1>Recent Posts</h1>
+
 {% if site.posts.size > 0 %}
     <ul>
-    {% for post in site.posts %}
+    {% for post in site.posts limit:5 %}
         <li>
             <strong><a href="{{ post.url }}">{{ post.title }}</a></strong> / <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y'}}</time>
             {{ post.excerpt }}
