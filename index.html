@@ -8,6 +8,7 @@ type: home
     {% for post in site.posts %}
         <li>
             <strong><a href="{{ post.url }}">{{ post.title }}</a></strong> / <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y'}}</time>
+            {{ post.excerpt }}
         </li>
     {% endfor %}
     </ul>
