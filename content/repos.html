@@ -5,6 +5,7 @@ permalink: repos.html
 ---
 
 {% if site.github.public_repositories.size > 0 %}
+    <ul>
     {% assign repos = site.github.public_repositories | sort:"updated_at" | reverse %}
     {% for repo in repos %}
         {% if repo.has_pages %}
@@ -12,16 +13,19 @@ permalink: repos.html
         {% else %}
             {% assign repo_url = repo.html_url %}
         {% endif %}
-* **[{{ repo.name }}]({{ repo_url }})** / updated {{ repo.updated_at | date: '%b %-d, %Y'}}
+        <li>
+            <strong><a href="{{ repo_url }}">{{ repo.name }}</a></strong> / udpated <time datetime="{{ repo.updated_at | date_to_xmlschema }}">{{ repo.updated_at | date: '%b %-d, %Y'}}</time>
         {% if repo.fork %}
-  _Reference, if this is forked or in another org_
+            <br />This repository is forked from somewhere
         {% endif %}
         {% if repo.description.size > 0 %}
-  {{ repo.description }}
+            <br />{{ repo.description }}
         {% endif %}
+        </li>
     {% endfor %}
+    </ul>
 {% else %}
-No repos yet!
+    No repos yet!
 {% endif %}
 
 <!---
