@@ -9,7 +9,7 @@ permalink: repos.html
     {% assign repos = site.github.public_repositories | sort:"updated_at" | reverse %}
     {% for repo in repos %}
         {% if repo.has_pages %}
-            {% assign repo_url = "https://solvaholic.github.io/{{ repo.name }}" %}
+            {% assign repo_url = "https://solvaholic.github.io/"{{ repo.name }}"/" %}
         {% else %}
             {% assign repo_url = repo.html_url %}
         {% endif %}
