@@ -7,8 +7,9 @@ type: home
     <ul>
     {% assign repos = site.github.public_repositories | sort:"updated_at" | reverse %}
     {% for repo in repos %}
-        <strong><a href="{{ repo.url }}">{{ repo.name }}</a></strong> / <time datetime="{{ repo.updated_at | date_to_xmlschema }}">{{ repo.updated_at | date: '%b %-d, %Y'}}</time>
+        <li><strong><a href="{{ repo.url }}">{{ repo.name }}</a></strong> / <time datetime="{{ repo.updated_at | date_to_xmlschema }}">{{ repo.updated_at | date: '%b %-d, %Y'}}</time></li>
     {% endfor %}
+    </ul>
 {% else %}
     No repos yet!
 {% endif %}
