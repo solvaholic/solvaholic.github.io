@@ -3,7 +3,7 @@
       {% assign repos = site.github.public_repositories | sort:"updated_at" | reverse %}
       {% for repo in repos %}
         <li>
-            {{% repo.title }}
+            {{ repo.name }}
         </li>
     {% endfor %}
     </ul>
