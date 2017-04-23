@@ -3,7 +3,7 @@
       {% assign repos = site.github.public_repositories | sort:"updated_at" | reverse %}
       {% for repo in repos %}
         <li>
-            <a href="{{ repo.url }}">{{ repo.title }}</a> / <time datetime="{{ repo.updated_at | date_to_xmlschema }}">{{ repo.updated_at | date: '%b %-d, %Y'}}</time>
+            repo.title
         </li>
     {% endfor %}
     </ul>
