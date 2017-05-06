@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Moving to GitHub Pages
+tags: fixme
 ---
 
 For exercise I [put blog.solvaholic.org on Amazon Web Services S3](/2017/02/08/Publish-Directly-to-S3.html) with a CloudFront front-end. I used Hexo to build the content, and pushed it up with awscli. That works and was totally worth it, and now I'm ready to do away with that complicatedness.
