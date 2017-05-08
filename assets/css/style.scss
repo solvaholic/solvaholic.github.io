@@ -1,0 +1,76 @@
+---
+---
+
+@import 'jekyll-theme-minimal';
+
+// Recycling the model from pages-themes/cayman ...
+
+//
+// From _sass/variables.scss :
+//
+
+// Breakpoints
+$large-breakpoint: 961px !default;
+$medium-breakpoint: 720px !default;
+
+//
+// From _sass/jekyll-theme-cayman.scss :
+//
+
+@mixin large {
+  @media screen and (min-width: #{$large-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media screen and (min-width: #{$medium-breakpoint}) and (max-width: #{$large-breakpoint}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media screen and (max-width: #{$medium-breakpoint}) {
+    @content;
+  }
+}
+
+//
+// Now putting it together for this site :
+//
+
+@media print {
+  background: none;
+}
+
+header {
+  @include large {
+    height: 450px;
+    background-image: url("/images/solvaholic-dragon.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center 120px;
+  }
+}
+
+body {
+  @include medium {
+    background: none;
+  }
+  @include small {
+    background: none;
+  }
+}
+
+//
+// To keep the footer from running up over the header :
+//
+
+footer {
+  @include large {
+    float: left;
+    width: 270px;
+    position: fixed;
+    top: 500px;
+  }
+}
