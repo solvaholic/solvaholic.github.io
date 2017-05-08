@@ -46,7 +46,7 @@ $medium-breakpoint: 720px !default;
 header {
   @include large {
     height: 450px;
-    background-image: url("/images/solvaholic-dragon.jpg");
+    background-image: url("https://s3.amazonaws.com/solvaholic/images/solvaholic-dragon.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center 120px;
