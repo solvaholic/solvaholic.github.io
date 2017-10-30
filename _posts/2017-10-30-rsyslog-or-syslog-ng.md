@@ -189,6 +189,25 @@ sudo apt update
 sudo apt upgrade
 ```
 
+```
+$ syslog-ng --version
+syslog-ng 3 (3.12.1)
+Installer-Version: 3.12.1
+Revision: 3.12.1-2
+Compile-Date: Oct  6 2017 13:43:17
+Module-Directory: /usr/lib/syslog-ng/3.12
+Module-Path: /usr/lib/syslog-ng/3.12
+Available-Modules: pacctformat,afmongodb,confgen,date,dbparser,graphite,csvparser,basicfuncs,afprog,snmptrapd-parser,mod-python,afstomp,riemann,afamqp,add-contextual-data,xml,stardate,sdjournal,kvformat,http,geoip-plugin,cryptofuncs,cef,system-source,geoip2-plugin,disk-buffer,linux-kmsg-format,affile,afsocket,afsmtp,map-value-pairs,afsql,tfgetent,redis,pseudofile,json-plugin,syslogformat,afuser
+Enable-Debug: off
+Enable-GProf: off
+Enable-Memtrace: off
+Enable-IPv6: on
+Enable-Spoof-Source: on
+Enable-TCP-Wrapper: on
+Enable-Linux-Caps: on
+Enable-Systemd: on
+```
+
 ### What changed between 3.5.6 and 3.12.1?
 
 To view code changes you can [compare the tags on GitHub.com](https://github.com/balabit/syslog-ng/compare/v3.5.6...syslog-ng-3.12.1). The [Open Source Edition documentation](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/index.html) includes [_What is new in syslog-ng Open Source Edition_](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/syslog-ng_whatsnew.html) and [_Changes in product_ back to 3.10](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/ose-changes.html)
@@ -244,7 +263,7 @@ Oct 30 00:58:15 syslog-ng sudo[197]: pam_unix(sudo:session): session closed for 
 Oct 30 00:58:48 syslog-ng LOGIN[200]: user ubuntu writes a message
 ```
 
-While troubleshooting a "What port is it listening on?" problem I configured the firewall. I'm unsure whether this was necessary. Here it is anyway:
+While answering "What port is it listening on?" I configured the firewall. I'm unsure whether this was necessary. Here it is anyway:
 
 ```
 sudo apt install ufw
@@ -284,8 +303,6 @@ ubuntu@aclient:~$ nc -w0 -u 10.0.3.202 514 <<< "<14>woooo a message from a remot
 ubuntu@syslog-ng:~$ sudo grep woooo /var/log/syslog-ng/logs.txt
 Oct 30 02:44:07 aclient woooo a message from a remote host
 ```
-
-
 
 ## Now what?
 
