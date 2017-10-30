@@ -214,7 +214,45 @@ To view code changes you can [compare the tags on GitHub.com](https://github.com
 
 # How do you make them work?
 
-## Configure rsyslog [server]()
+My first real use case will be a device that forwards log messages to the server's UDP port 514, so I'll configure rsyslog and syslog-ng to listen on UDP port 514.
+
+## Configure rsyslog [server](http://www.rsyslog.com/doc/master/index.html)
+
+_See [rsyslog's online documentation](http://www.rsyslog.com/doc/master/index.html) for more information._
+
+There's a default configuration in `/etc/rsyslog.conf`, which loads `/etc/rsyslog.d/50-default.conf`. On rsyslog.com I found [a sample configuration](http://www.rsyslog.com/doc/master/examples/high_performance.html#sample-configuration), [comprehensive information and instructions about configuring rsyslog](http://www.rsyslog.com/doc/master/configuration/index.html), and [an explanation of how the configuration files are loaded](http://www.rsyslog.com/doc/master/configuration/basic_structure.html#configuration-file).
+
+TODO: Install the sample configuration,
+
+```
+# load required modules
+module(load="imudp" threads="2"
+       timeRequery="8" batchSize="128")
+module(load="imptcp" threads="3")
+
+# listeners
+# repeat blocks if more listeners are needed
+# alternatively, use array syntax:
+# port=["514","515",...]
+input(type="imudp" port="514"
+      ruleset="writeRemoteData")
+input(type="imptcp" port="10514"
+      ruleset="writeRemoteData")
+
+# now define our ruleset, which also includes
+# threading and queue parameters.
+ruleset(name="writeRemoteData"
+        queue.type="fixedArray"
+        queue.size="250000"
+        queue.dequeueBatchSize="4096"
+        queue.workerThreads="4"
+        queue.workerThreadMinimumMessages="60000"
+       ) {
+    action(type="omfile" file="/var/log/remote.log"
+           ioBufferSize="64k" flushOnTXEnd="off"
+           asyncWriting="on")
+}
+```
 
 ## Configure syslog-ng [server](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/concepts-server-mode.html)
 
@@ -273,6 +311,8 @@ sudo ufw allow 514
 
 ## Configure a syslog source
 
+The `logger` command has a `-u <socket>` option, but I didn't find how to create and name a socket to a syslog server.
+
 For initial testing I used `nc` per the _DIY client_ section below. You can run rsyslog and syslog-ng in client mode, or configure your native syslog to forward messages to your rsyslog or syslog-ng server.
 
 ### [rsyslog client]()
@@ -281,7 +321,7 @@ For initial testing I used `nc` per the _DIY client_ section below. You can run 
 
 ### DIY client
 
-My first real use case will be a device that forwards log messages to the server's UDP port 514, so I configured rsyslog and syslog-ng to listen on UDP port 514. This `nc` example [from byexamples.com](http://linux.byexamples.com/archives/412/syslog-sending-log-from-remote-servers-to-syslog-daemon/) successfully demonstrated function:
+For the syslog server receiving on UDP port 514, this `nc` example [from byexamples.com](http://linux.byexamples.com/archives/412/syslog-sending-log-from-remote-servers-to-syslog-daemon/) successfully demonstrates function:
 
 ```
 nc -w0 -u YourServerAddress 514 <<< "<14>Your message here."
@@ -289,7 +329,7 @@ nc -w0 -u YourServerAddress 514 <<< "<14>Your message here."
 
 ## Send some syslog
 
-Quickly and simply demonstrate that your syslog server is receiving and recording log entries.
+Demonstrate that your syslog server will receive and record messages from a client.
 
 ### rsyslog
 
