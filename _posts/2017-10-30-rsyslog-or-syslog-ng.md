@@ -1,7 +1,7 @@
 ---
 layout: default
 title: rsyslog? or syslog-ng?
-date: 2017-10-28 00:00:01
+date: 2017-10-30 00:00:01
 excerpt_separator: <!--more-->
 tags:
 ---
@@ -193,39 +193,103 @@ sudo apt upgrade
 
 To view code changes you can [compare the tags on GitHub.com](https://github.com/balabit/syslog-ng/compare/v3.5.6...syslog-ng-3.12.1). The [Open Source Edition documentation](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/index.html) includes [_What is new in syslog-ng Open Source Edition_](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/syslog-ng_whatsnew.html) and [_Changes in product_ back to 3.10](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/ose-changes.html)
 
-# How do they work?
+# How do you make them work?
 
-## Configure rsyslog
+## Configure rsyslog [server]()
 
-## Configure syslog-ng
+## Configure syslog-ng [server](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/concepts-server-mode.html)
 
-[The project README](https://github.com/balabit/syslog-ng/blob/bd232e45c2cd76fa3ad636b24a0b530748fcbd80/README.md) suggests this configuration:
+_See [Configuring syslog-ng on server hosts](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/configure-servers.html) in the quick-start guide for more information._
 
-> ```
-> @version: 3.12
-> @include "scl.conf"
->
-> log {
-> 	source {
-> 		system();
-> 		network();
-> 	};
-> 	destination { file("/var/log/syslog"); };
-> };
-> ```
+The default configuration in `/etc/syslog-ng/syslog-ng.conf` seems pretty inclusive. To simplify the configuration for testing, replace it with this one from [the quick-start guide](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/configure-servers.html):
 
-TODO:
+_Note: I changed `perm(0777)` to `perm(0770)` and `transport(tcp)` to `transport(udp)`._
 
-[The syslog-ng quick-start guide](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/chapter-quickstart.html) ...
+```
+@version: 3.12
+@include "scl.conf"
+    options {
+        time-reap(30);
+        mark-freq(10);
+        keep-hostname(yes);
+        };
+    source s_local { system(); internal(); };
+    source s_network {
+        syslog(transport(udp));
+        };
+    destination d_logs {
+        file(
+            "/var/log/syslog-ng/logs.txt"
+            owner("root")
+            group("root")
+            perm(0770)
+            ); };
+    log { source(s_local); source(s_network); destination(d_logs); };
+```
 
+My `/var/log/syslog-ng` directory did't exist yet, so I created it and restarted syslog-ng:
+
+```
+mkdir -m 774 /var/log/syslog-ng
+sudo systemctl restart syslog-ng
+```
+
+The next time I tried `logger` it told me, "logger: socket /dev/log: Connection refused". Without looking too far into that I did `lxc-stop`/`lxc-start` to reboot the container. After that, logging seemed to work:
+
+```
+$ logger 'user ubuntu writes a message'
+$ sudo tail -n 3 /var/log/syslog-ng/logs.txt
+Oct 30 00:58:15 syslog-ng sudo[197]: pam_unix(sudo:session): session opened for user root by LOGIN(uid=0)
+Oct 30 00:58:15 syslog-ng sudo[197]: pam_unix(sudo:session): session closed for user root
+Oct 30 00:58:48 syslog-ng LOGIN[200]: user ubuntu writes a message
+```
+
+While troubleshooting a "What port is it listening on?" problem I configured the firewall. I'm unsure whether this was necessary. Here it is anyway:
+
+```
+sudo apt install ufw
+sudo ufw enable
+sudo ufw allow 514
+```
 
 ## Configure a syslog source
 
+For initial testing I used `nc` per the _DIY client_ section below. You can run rsyslog and syslog-ng in client mode, or configure your native syslog to forward messages to your rsyslog or syslog-ng server.
+
+### [rsyslog client]()
+
+### [syslog-ng client](https://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html/concepts-client-mode.html)
+
+### DIY client
+
+My first real use case will be a device that forwards log messages to the server's UDP port 514, so I configured rsyslog and syslog-ng to listen on UDP port 514. This `nc` example [from byexamples.com](http://linux.byexamples.com/archives/412/syslog-sending-log-from-remote-servers-to-syslog-daemon/) successfully demonstrated function:
+
+```
+nc -w0 -u YourServerAddress 514 <<< "<14>Your message here."
+```
+
 ## Send some syslog
+
+Quickly and simply demonstrate that your syslog server is receiving and recording log entries.
+
+### rsyslog
+
+### syslog-ng
+
+```
+ubuntu@aclient:~$ nc -w0 -u 10.0.3.202 514 <<< "<14>woooo a message from a remote host"
+```
+
+```
+ubuntu@syslog-ng:~$ sudo grep woooo /var/log/syslog-ng/logs.txt
+Oct 30 02:44:07 aclient woooo a message from a remote host
+```
+
+
 
 ## Now what?
 
-- - - - 
+- - - -
 # Why I'm starting out with syslog-ng
 
 You'll make your own choice, to suit your own needs. For me it was easy, and it wasn't about superior features or capabilities, nor ease of use:
