@@ -114,9 +114,14 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 Say something about how to get help using this project
 
+-->
+
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details
+
+<!---
 
 ## Acknowledgments
 
