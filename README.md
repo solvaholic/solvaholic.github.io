@@ -113,6 +113,8 @@ See also the list of [contributors](https://github.com/your/project/contributors
 ## Getting Help
 
 Say something about how to get help using this project
+-->
+
 
 -->
 
@@ -123,6 +125,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 <!---
 
+<!---
 ## Acknowledgments
 
 * Hat tip to anyone who's code was used
