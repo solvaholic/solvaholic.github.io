@@ -16,7 +16,7 @@ To start with, though, have a peek at [syslog-ng](https://syslog-ng.org/) and [r
 
 # How do syslog-ng and rsyslog compare?
 
-Both [rsyslog](http://www.rsyslog.com/) and [syslog-ng](https://syslog-ng.org/) will accept `syslog` events on the network. Both support, via plugins, various outputs (for example write to files, database, or queues), filters, and text transformations.
+Both [rsyslog](http://www.rsyslog.com/) and [syslog-ng](https://syslog-ng.org/) servers will accept `syslog` events on the network. Both support, via plugins, various outputs (for example write to files, database, or queues), filters, and text transformations.
 
 If you're new to log aggregation, like I am, it could be hard to choose one to start with. Even when you look down the road to, for example, interactive visualizations and machine learning, you'll see ways to do what you want with both syslog-ng and rsyslog.
 
@@ -45,7 +45,7 @@ lxc-destroy -n sysloggin
 
 ## rsyslog
 
-[The _Installing rsyslog_ section of the project's README.md](https://github.com/rsyslog/rsyslog/blob/master/README.md#installing-rsyslog) explains that rsyslog development moves too fast for Linux distributions' repos, and suggests using the project's repos for the latest rsyslog goodness.
+[The _Installing rsyslog_ section of the project's README.md](https://github.com/rsyslog/rsyslog/blob/master/README.md#installing-rsyslog) explains that rsyslog development moves too fast for Linux distributions' repos and suggests using the project's repos for the latest rsyslog goodness.
 
 Let's try both...
 
@@ -311,8 +311,6 @@ sudo ufw allow 514
 
 ## Configure a syslog source
 
-The `logger` command has a `-u <socket>` option, but I didn't find how to create and name a socket to a syslog server.
-
 For initial testing I used `nc` per the _DIY client_ section below. You can run rsyslog and syslog-ng in client mode, or configure your native syslog to forward messages to your rsyslog or syslog-ng server.
 
 ### [rsyslog client]()
@@ -321,7 +319,7 @@ For initial testing I used `nc` per the _DIY client_ section below. You can run 
 
 ### DIY client
 
-For the syslog server receiving on UDP port 514, this `nc` example [from byexamples.com](http://linux.byexamples.com/archives/412/syslog-sending-log-from-remote-servers-to-syslog-daemon/) successfully demonstrates function:
+If the syslog server is listening on UDP port 514, this `nc` example [from byexamples.com](http://linux.byexamples.com/archives/412/syslog-sending-log-from-remote-servers-to-syslog-daemon/) successfully demonstrates function:
 
 ```
 nc -w0 -u YourServerAddress 514 <<< "<14>Your message here."
@@ -351,4 +349,4 @@ Oct 30 02:44:07 aclient woooo a message from a remote host
 
 You'll make your own choice, to suit your own needs. For me it was easy, and it wasn't about superior features or capabilities, nor ease of use:
 
-More than just a product to use, I'm also looking for a project to contribute to. For both purposes, I find syslog-ng more welcoming.
+More than just a product to use, I'm also looking for a project I'll contribute to. For both purposes, I find syslog-ng more welcoming.
