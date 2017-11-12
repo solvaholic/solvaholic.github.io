@@ -1,3 +1,12 @@
+#!/bin/sh
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+script/bootstrap
+
+# ?
 # Run bootstrap to get/update dependencies
 # Update environment
 # Run database migrations?

@@ -1,2 +1,11 @@
+#!/bin/sh
+
+set -e
+
+cd "$(dirname "$0")/.."
+
 # Run update to get current
+script/update
+
 # Start server for Pages content
+bundle exec jekyll serve
