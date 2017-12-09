@@ -9,9 +9,6 @@ tags:
 This summer I started learning about Kubernetes. Once it's up and running, [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) is an orchestration layer that makes it really super straightforward to do rapid deployment, high availability, and scalability with Linux containers. That sounds fantastic! But .. what's a Linux container? and can they be useful without Kubernetes?
 
 <!--more-->
-(edited and reposted on 7 Oct 2017)
-
-
 
 ## What is Linux containers?
 
@@ -50,6 +47,8 @@ $ sudo apt install cloud-utils-euca shunit2 wodim cdrkit-doc qemu-user-static lx
 ### 2. Configure LXC
 
 _Sidenote: The steps in this post create unprivileged containers, which [seems to not work in Fedora](https://ask.fedoraproject.org/en/question/87791/unprivileged-lxc/). That's why we're looking at this on the Ubuntu server instead of on the Fedora laptop._
+
+_Update: That, above, may have been because `uidmap` was not installed. If `lxc-create` returns an error about newuidmap then try installing the `uidmap` package._
 
 #### 2.1. Find your sub-UIDs and sub-GIDs
 
@@ -230,10 +229,15 @@ This is optional, in case you're watching your used space. You'll only need thes
 $ rm -rf ~/.cache/lxc/download/*
 ```
 
-
-
 ## See also
 
+- [_LXC_](https://help.ubuntu.com/lts/serverguide/lxc.html) in Ubuntu Server Guide / Virtualization
 - https://linuxcontainers.org/lxc/getting-started/
 - https://stgraber.org/2014/01/17/lxc-1-0-unprivileged-containers/
 - http://blog.scottlowe.org/2013/11/25/a-brief-introduction-to-linux-containers-with-lxc/
+
+## Updates
+
+- 20170720 - [Original post](https://github.com/solvaholic/solvaholic.github.io/blob/6e3976830a7903975411ba2ab6f5cc921c6ab67c/_posts/2017-07-20-Get-going-with-LXC.md)
+- 20171007 - [Edit and repost](https://github.com/solvaholic/solvaholic.github.io/commit/ab5b3dce44cf4d1b35e3c166e89cd7ea1aa4853d#diff-c09ca444e2a8999e24515b4b746ac86c)
+- 20171209 - [Add notes about `uidmap` and Ubuntu Server Guide](https://github.com/solvaholic/solvaholic.github.io/commits/master/_posts/2017-07-20-Get-going-with-LXC.md)
