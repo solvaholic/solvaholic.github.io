@@ -29,9 +29,13 @@ fi
 git checkout -b $mybranch
 
 # Copy in the default content
-curl -L https://github.com/solvaholic/solvaholic.github.io/tarball/master | tar xz "solvaholic-solvaholic.github.io-*/templates/repo_defaults/*"
+myTFile=$( tempfile )
+myXPath="solvaholic-solvaholic.github.io-*/templates/repo_defaults/*"
+curl -Lo $myTFile https://github.com/solvaholic/solvaholic.github.io/tarball/master
+tar xzf $myTFile "$myXPath" 2&>1 /dev/null || tar xzf $myTFile --wildcards "$myXPath" 2&>1 /dev/null
 mv solvaholic-solvaholic.github.io-*/templates/repo_defaults/{*,.git?*} ./
 rm -rf solvaholic-solvaholic.github.io-*
+rm -f $myTFile
 
 # Commit the changes
 git add .
