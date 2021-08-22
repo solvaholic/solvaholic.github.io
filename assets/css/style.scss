@@ -1,122 +1,68 @@
 ---
 ---
 
-@import "{{ site.theme }}";
+@import "jekyll-theme-minimal";
 
-//
-// CSS customizations for {{ site.title }}
-//
-
-//
-// Override colors from styles.css provided in template:
-// https://github.com/orderedlist/minimal/blob/master/stylesheets/styles.css
-//
-
-:root {
-  --body-background-color: #fff;
-  --body-color: #595959;
-  --h1-color: #222;
-  --h2-color: #393939;
-  --hN-color: #494949;
-  --a-color: #39c;
-  --a-hover-color: #069;
-  --dt-color: #444;
-  --th-color: #444;
-  --header-ul-a-color: #999;
-  --strong-color: #222;
-  --c-font-weight: 500;
+.img-circle {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+    margin-bottom: 10px;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
 
-//
-// Honor the user's dark theme preference
-//
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-background-color: #212529;
-    --body-color: #6c757d;
-    --h1-color: #ddd;
-    --h2-color: #bbb;
-    --hN-color: #aaa;
-    --a-color: #dee2e6;
-    --a-hover-color: #fff;
-    --dt-color: #bbb;
-    --th-color: #bbb;
-    --header-ul-a-color: #777;
-    --strong-color: #ddd;
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+
+.popup .content {
+  padding-right: 20px;
+  max-height: 30%;
+  overflow: auto;
+  font: 15px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
   }
-}
-
-body {
-  background-color: var(--body-background-color);
-  color: var(--body-color);
-}
-
-h1 {
-  color: var(--h1-color);
-}
-
-h2 {
-  color: var(--h2-color);
-}
-
-h3, h4, h5, h6 {
-  color: var(--hN-color);
-}
-
-a {
-  color:#39c;
-}
-
-a:hover {
-  color: var(--a-color);
-}
-
-a small {
-  color: var(--a-color);
-}
-
-a:hover small {
-  color: var(--a-hover-color);
-}
-
-dt {
-  color: var(--dt-color);
-}
-
-th {
-  color: var(--th-color);
-}
-
-header ul a {
-  color: var(--header-ul-a-color);
-}
-
-header ul a:hover {
-  color: var(--header-ul-a-color);
-  font-weight: var(--c-font-weight);
-}
-
-header ul a strong {
-  color: var(--header-ul-a-color);
-}
-
-strong {
-  color: var(--strong-color);
-}
-
-section p a:hover {
-  font-weight: var(--c-font-weight);
-}
-
-footer a:hover {
-  font-weight: var(--c-font-weight);
-}
-
-@media print {
-  body {
-    background: none;
-    color:#444;
+  .popup{
+    width: 70%;
   }
 }
