@@ -8,4 +8,4 @@ Hi, my name is Roger and I'm a solvaholic.
 
 ### Contact me
 
-[solvaholic@github.com](mailto:solvaholic@github.com)
+Keybase: [solvaholic](https://keybase.io/solvaholic)
