@@ -1,76 +1,122 @@
 ---
 ---
 
-@import 'jekyll-theme-minimal';
-
-// Recycling the model from pages-themes/cayman ...
+@import "{{ site.theme }}";
 
 //
-// From _sass/variables.scss :
+// CSS customizations for {{ site.title }}
 //
 
-// Breakpoints
-$large-breakpoint: 961px !default;
-$medium-breakpoint: 720px !default;
-
 //
-// From _sass/jekyll-theme-cayman.scss :
+// Override colors from styles.css provided in template:
+// https://github.com/orderedlist/minimal/blob/master/stylesheets/styles.css
 //
 
-@mixin large {
-  @media screen and (min-width: #{$large-breakpoint}) {
-    @content;
-  }
+:root {
+  --body-background-color: #fff;
+  --body-color: #595959;
+  --h1-color: #222;
+  --h2-color: #393939;
+  --hN-color: #494949;
+  --a-color: #39c;
+  --a-hover-color: #069;
+  --dt-color: #444;
+  --th-color: #444;
+  --header-ul-a-color: #999;
+  --strong-color: #222;
+  --c-font-weight: 500;
 }
 
-@mixin medium {
-  @media screen and (min-width: #{$medium-breakpoint}) and (max-width: #{$large-breakpoint}) {
-    @content;
-  }
-}
-
-@mixin small {
-  @media screen and (max-width: #{$medium-breakpoint}) {
-    @content;
-  }
-}
 
 //
-// Now putting it together for this site :
+// Honor the user's dark theme preference
 //
 
-@media print {
-  background: none;
-}
-
-header {
-  @include large {
-    height: 450px;
-    background-image: url("https://s3.amazonaws.com/solvaholic/images/solvaholic-dragon.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center 120px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-background-color: #212529;
+    --body-color: #6c757d;
+    --h1-color: #ddd;
+    --h2-color: #bbb;
+    --hN-color: #aaa;
+    --a-color: #dee2e6;
+    --a-hover-color: #fff;
+    --dt-color: #bbb;
+    --th-color: #bbb;
+    --header-ul-a-color: #777;
+    --strong-color: #ddd;
   }
 }
 
 body {
-  @include medium {
-    background: none;
-  }
-  @include small {
-    background: none;
-  }
+  background-color: var(--body-background-color);
+  color: var(--body-color);
 }
 
-//
-// To keep the footer from running up over the header :
-//
+h1 {
+  color: var(--h1-color);
+}
 
-footer {
-  @include large {
-    float: left;
-    width: 270px;
-    position: fixed;
-    top: 500px;
+h2 {
+  color: var(--h2-color);
+}
+
+h3, h4, h5, h6 {
+  color: var(--hN-color);
+}
+
+a {
+  color:#39c;
+}
+
+a:hover {
+  color: var(--a-color);
+}
+
+a small {
+  color: var(--a-color);
+}
+
+a:hover small {
+  color: var(--a-hover-color);
+}
+
+dt {
+  color: var(--dt-color);
+}
+
+th {
+  color: var(--th-color);
+}
+
+header ul a {
+  color: var(--header-ul-a-color);
+}
+
+header ul a:hover {
+  color: var(--header-ul-a-color);
+  font-weight: var(--c-font-weight);
+}
+
+header ul a strong {
+  color: var(--header-ul-a-color);
+}
+
+strong {
+  color: var(--strong-color);
+}
+
+section p a:hover {
+  font-weight: var(--c-font-weight);
+}
+
+footer a:hover {
+  font-weight: var(--c-font-weight);
+}
+
+@media print {
+  body {
+    background: none;
+    color:#444;
   }
 }
