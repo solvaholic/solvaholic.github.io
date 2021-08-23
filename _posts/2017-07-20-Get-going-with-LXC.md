@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Getting going with LXC
 date: 2017-10-07 00:00:01
 excerpt_separator: <!--more-->

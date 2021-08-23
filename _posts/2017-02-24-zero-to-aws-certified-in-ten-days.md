@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Zero to AWS Certified in Ten Days
 date: 2017-02-24 22:20:39
 tags:

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Solvaholic's Dragon
 date: 2017-05-08 05:20:00
 excerpt_separator: <!--more-->

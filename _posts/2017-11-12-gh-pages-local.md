@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Set up your GitHub Pages site locally
 date: 2017-11-12 00:00:01
 excerpt_separator: <!--more-->
@@ -77,7 +77,7 @@ Create a branch to work in and use your favorite text editor to create `_posts/2
 
 ```
 ---
-layout: default
+layout: post
 title: Set up your GitHub Pages site locally
 date: 2017-11-12 00:00:01
 ---

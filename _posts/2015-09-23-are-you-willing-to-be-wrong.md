@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Are you willing to be wrong?
 date: 2015-09-23 00:00:00
 excerpt_separator: <!--more-->

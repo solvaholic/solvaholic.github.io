@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Update Node.js And Packages
 date: 2017-03-02 08:18:30
 tags:

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Which kind of ASS are UME?
 date: 2015-09-28 00:00:00
 excerpt_separator: <!--more-->

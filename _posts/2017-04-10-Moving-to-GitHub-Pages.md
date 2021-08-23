@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Moving to GitHub Pages
 ---
 
@@ -49,7 +49,7 @@ I'll have to circle back around on this and fill in more details. Mostly :
 
 ```
 ---
-layout: default
+layout: post
 type: home
 ---
 
@@ -70,7 +70,7 @@ type: home
 
 ```
 ---
-layout: default
+layout: post
 title: Post Title
 ---
 

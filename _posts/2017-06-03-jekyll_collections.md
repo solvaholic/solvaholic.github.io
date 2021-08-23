@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: How-To - Jekyll Collections
 date: 2017-06-03 00:00:01
 excerpt_separator: <!--more-->
@@ -25,14 +25,14 @@ Here's what I did, to demonstrate Jekyll Collections:
           path: ""
           type: my_collection_name
         values:
-          layout: default
+          layout: post
     ```
 4. Create a page, e.g. `<source>/allcontent.md`, to display all the content in the collection
     {% raw %}
     ```
     ---
     title: All the content in the collection
-    layout: default
+    layout: post
     permalink: allcontent.html
     ---
 

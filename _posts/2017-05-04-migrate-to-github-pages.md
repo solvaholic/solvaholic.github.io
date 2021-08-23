@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Migrating promiscuousideas.com to GitHub Pages
 date: 2017-05-04 20:15:01
 excerpt_separator: <!--more-->

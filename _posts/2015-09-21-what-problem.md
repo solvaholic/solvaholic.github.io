@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: What problem?
 date: 2015-09-21 00:00:00
 excerpt_separator: <!--more-->

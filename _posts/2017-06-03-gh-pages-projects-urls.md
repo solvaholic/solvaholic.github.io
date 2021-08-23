@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Making sense of URLs in GitHub Pages for projects
 date: 2017-06-03 14:00:00
 excerpt_separator: <!--more-->

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Put Some Solvahol On That
 date: 2017-02-11 11:49:41
 tags:

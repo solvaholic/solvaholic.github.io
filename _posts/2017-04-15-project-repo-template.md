@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Publish a Project Template Programmatically
 date: 2017-04-15 01:00:00
 excerpt_separator: <!--more-->

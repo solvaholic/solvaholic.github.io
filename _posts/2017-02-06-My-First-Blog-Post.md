@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: My First Blog Post
 date: 2017-02-06 21:13:41
 tags:

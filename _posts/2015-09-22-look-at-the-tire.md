@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Look at the tire
 date: 2015-09-22 00:00:00
 excerpt_separator: <!--more-->

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Why do we still have this problem?
 date: 2015-09-29 00:00:00
 excerpt_separator: <!--more-->

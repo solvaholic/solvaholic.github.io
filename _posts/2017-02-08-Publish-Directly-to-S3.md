@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Publish Directly to S3
 date: 2017-02-08 07:36:04
 ---

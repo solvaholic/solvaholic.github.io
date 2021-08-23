@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Go Cognitive With Watson
 date: 2017-02-08 21:59:36
 tags:
