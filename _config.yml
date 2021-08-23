@@ -11,3 +11,4 @@ theme: jekyll-theme-minimal
 plugins:
   - jekyll-mentions
   - jekyll-github-metadata
+  - jemoji
