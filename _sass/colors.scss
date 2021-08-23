@@ -99,11 +99,17 @@ hvr -> hover
   :root {
     --L-a-text-hover-change: 0.8;//the number that --L-a-text gets changed by when it is hovered eg a button has 30% luminosity when left it luminosity is then timesed by 0.8 when the button is hovered
     @include colors;
-    @include light-colors;
+    @include dark-colors;
   }
   
-  @media screen and (prefers-color-scheme: dark) {//we would not like to apply dark mode if content is on printer as that would use a lot of ink
-      :root{
-          @include dark-colors;
-      }
-  } 
+  @media (prefers-color-scheme: light) {
+    :root{
+        @include light-colors;
+    }
+  }
+
+  @media print {
+    :root{
+        @include light-colors;
+    }
+} 

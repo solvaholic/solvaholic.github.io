@@ -19,8 +19,6 @@ and https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 
 @solvaholic uses this repository to publish articles and other content to https://solvaholic.github.io
 
-This repository is currently not open to contributions.
-
 <!---
 ## Getting Started
 
