@@ -10,10 +10,23 @@
     }
   </style>
   <ul class="link">
-    <li><a href="https://github.com/solvaholic" rel="author"><i class="fab fa-github"></i> on GitHub</a></li>
-    <li><a href="https://keybase.io/solvaholic" rel="external"><i class='fab fa-keybase'></i> on Keybase</a></li>
-    <!-- <li><a href="https://twitter.com" rel="external"><i class="fab fa-twitter"></i> on Twitter</a></li> -->
+    {% if site.github.owner_url %}
+    <li><a href="{{ site.github.owner_url }}" rel="author"><i class="fab fa-github"></i> on GitHub</a></li>
+    {% endif %}
+    
+    {% if site.author_url_keybase %}
+    <li><a href="{{ site.author_url_keybase }}" rel="external"><i class='fab fa-keybase'></i> on Keybase</a></li>
+    {% endif %}
+    
+    {% if site.author_url_twitter %}
+    <li><a href="{{ site.author_url_twitter }}" rel="external"><i class="fab fa-twitter"></i> on Twitter</a></li>
+    {% endif %}
+    
     <li><a href="/allposts.html"><i class='far fa-folder-open'></i> All posts</a></li>
-    <li><a href="https://github.com/solvaholic/solvaholic.github.io"><i class='fas fa-code'></i> Code for this site</a></li>
+
+    {% if site.github.repository_url %}
+    <li><a href="{{ site.github.repository_url }}"><i class='fas fa-code'></i> Code for this site</a></li>
+    {% endif %}
+
   </ul>
 </div>
