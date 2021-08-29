@@ -9,6 +9,12 @@ layout: default
 
 {{content}}
 
+{% if page.discussion_id %}
+  {% capture discussion_url %}
+  https://github.com/solvaholic/solvaholic.github.io/discussions/{{ page.discussion_id }}
+  {% endcapture %}
+  <small><a href="https://github.com/solvaholic/solvaholic.github.io/discussions/21">Comments?</a></small> |
+{% endif %}
 {% if page.tags %}
   <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
 {% endif %}
