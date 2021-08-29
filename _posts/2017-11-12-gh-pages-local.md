@@ -3,7 +3,7 @@ layout: post
 title: Set up your GitHub Pages site locally
 date: 2017-11-12 00:00:01
 excerpt_separator: <!--more-->
-tags:
+tags: gh-pages
 ---
 
 These are my notes about setting up your GitHub Pages site locally...

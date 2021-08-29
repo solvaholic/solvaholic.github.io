@@ -2,7 +2,7 @@
 layout: post
 title: Put Some Solvahol On That
 date: 2017-02-11 11:49:41
-tags:
+tags: solvahol notes
 ---
 The news is sensationalizing one view on an issue. Your friend just can't get past an annoying situation. Your kids are frustrated because their teachers don't make sense. If you care, then treat it like a problem. And put some solvahol on it.
 

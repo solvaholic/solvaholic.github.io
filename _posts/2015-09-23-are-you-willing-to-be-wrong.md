@@ -3,7 +3,7 @@ layout: post
 title: Are you willing to be wrong?
 date: 2015-09-23 00:00:00
 excerpt_separator: <!--more-->
-tags:
+tags: solvahol notes
 ---
 
 Are you willing to try something, to risk failure? Are you willing to make a mistake?

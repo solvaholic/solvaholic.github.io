@@ -2,7 +2,7 @@
 layout: post
 title: Update Node.js And Packages
 date: 2017-03-02 08:18:30
-tags:
+tags: notes
 ---
 
 Each time I go to use a Node.js package on my laptop I wonder how to upgrade Node.js and its packages. Homebrew would make it easier, so next I'll wonder why I'm not using that. For now, though, here's a way to upgrade Node.js and packages...

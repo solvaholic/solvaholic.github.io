@@ -3,7 +3,7 @@ layout: post
 title: Making sense of URLs in GitHub Pages for projects
 date: 2017-06-03 14:00:00
 excerpt_separator: <!--more-->
-tags:
+tags: notes gh-pages jekyll
 ---
 
 I used GitHub Pages' `site.github.public_repositories` to [list all my public Repositories](https://solvaholic.github.io/repos.html). I wanted to list pages in a [Collection](https://jekyllrb.com/docs/collections/) in a similar way for the [`solvahol/ghkb`](https://github.com/solvahol/ghkb) project. Because [GitHub Pages addresses the project as a subdirectory](https://help.github.com/articles/user-organization-and-project-pages/) of the owner's Pages site, this was less straightforward than I expected.

@@ -2,7 +2,7 @@
 layout: post
 title: Go Cognitive With Watson
 date: 2017-02-08 21:59:36
-tags:
+tags: notes
 ---
 Want to turn your smartphone into an intelligent virtual assistant?  Tried building cloud-based mobile apps and had trouble with the kludge of tools online? or are you unsure where to start?
 

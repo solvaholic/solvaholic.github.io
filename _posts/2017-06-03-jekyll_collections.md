@@ -3,7 +3,7 @@ layout: post
 title: How-To - Jekyll Collections
 date: 2017-06-03 00:00:01
 excerpt_separator: <!--more-->
-tags:
+tags: notes how-to jekyll
 ---
 
 Jekyll's Collections provide powerful tools to organize content. Ben Balter put together [an excellent write-up about using Collections with Jekyll](http://ben.balter.com/2015/02/20/jekyll-collections/). And [the Jekyll documentation](https://jekyllrb.com/docs/collections/) is super helpful as well.

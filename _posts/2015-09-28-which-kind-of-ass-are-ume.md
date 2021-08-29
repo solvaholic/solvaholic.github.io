@@ -3,7 +3,7 @@ layout: post
 title: Which kind of ASS are UME?
 date: 2015-09-28 00:00:00
 excerpt_separator: <!--more-->
-tags:
+tags: solvahol notes
 ---
 
 I say, "Assume there's already a solution."  You say, "You know what happens when you ass-ume haha!"

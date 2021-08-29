@@ -2,6 +2,7 @@
 layout: post
 title: Publish Directly to S3
 date: 2017-02-08 07:36:04
+tags: notes
 ---
 
 Author a static Web site locally in hexo, and publish directly to a Amazon Web Services' S3 bucket.  You'll use hexo, a text editor, and the AWS CLI.

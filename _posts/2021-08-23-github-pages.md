@@ -3,7 +3,7 @@ layout: post
 title: Using GitHub Pages
 date: 2021-08-23 16:00:00
 excerpt_separator: <!--more-->
-tags: notes how-to
+tags: notes how-to gh-pages
 permalink: github-pages.html
 ---
 

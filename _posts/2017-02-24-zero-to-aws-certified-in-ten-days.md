@@ -2,7 +2,7 @@
 layout: post
 title: Zero to AWS Certified in Ten Days
 date: 2017-02-24 22:20:39
-tags:
+tags: how-to
 ---
 
 You can get from "Amazon Web Services is cloud stuff, yeah?" to AWS capable and fluent - and Certified! - in ten days. Here's how...

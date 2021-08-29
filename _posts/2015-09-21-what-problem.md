@@ -3,7 +3,7 @@ layout: post
 title: What problem?
 date: 2015-09-21 00:00:00
 excerpt_separator: <!--more-->
-tags:
+tags: solvahol notes
 ---
 
 It's tempting to treat problems as individual transactions. Cut into bite-sized pieces, problems look like this...

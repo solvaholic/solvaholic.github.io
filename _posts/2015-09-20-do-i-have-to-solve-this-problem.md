@@ -3,7 +3,7 @@ layout: post
 title: Do I have to solve this problem?
 date: 2015-09-20 00:00:00
 excerpt_separator: <!--more-->
-tags:
+tags: solvahol notes
 ---
 
 When you're doing one thing, you're not doing everything else.

@@ -3,7 +3,7 @@ layout: post
 title: Why do we still have this problem?
 date: 2015-09-29 00:00:00
 excerpt_separator: <!--more-->
-tags:
+tags: solvahol notes
 ---
 
 As a problem solver, you have a limit - a threshold, a tolerance - for how many times you're willing to solve the same problem.

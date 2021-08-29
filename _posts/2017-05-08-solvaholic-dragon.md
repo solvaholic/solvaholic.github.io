@@ -3,7 +3,7 @@ layout: post
 title: Solvaholic's Dragon
 date: 2017-05-08 05:20:00
 excerpt_separator: <!--more-->
-tags:
+tags: notes about
 ---
 
 Where did that stunning blue and gold dragon come from? And why is it eating its tail?

@@ -3,7 +3,7 @@ layout: post
 title: Getting going with LXC
 date: 2017-10-07 00:00:01
 excerpt_separator: <!--more-->
-tags:
+tags: notes how-to
 ---
 
 This summer I started learning about Kubernetes. Once it's up and running, [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) is an orchestration layer that makes it really super straightforward to do rapid deployment, high availability, and scalability with Linux containers. That sounds fantastic! But .. what's a Linux container? and can they be useful without Kubernetes?
