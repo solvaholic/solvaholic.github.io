@@ -11,10 +11,16 @@ layout: default
 
 {% if page.discussion_id %}
   {% capture discussion_url %}
-  https://github.com/solvaholic/solvaholic.github.io/discussions/{{ page.discussion_id }}
+  {{ site.github.repository_url }}/discussions/{{ page.discussion_id }}
   {% endcapture %}
-  <small><a href="https://github.com/solvaholic/solvaholic.github.io/discussions/21">Comments?</a></small> |
+  <small><a href="{{ discussion_url }}">Comments?</a></small> |
 {% endif %}
+
+{% capture contribute_url %}
+{{ site.github.repository_url }}/edit/{{ site.github.source.branch }}{{ site.github.source.path }}{{ page.path }}
+{% endcapture %}
+<small><a href="{{ contribute_url | rstrip }}">Contribute</a></small> |
+
 {% if page.tags %}
   <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
 {% endif %}
