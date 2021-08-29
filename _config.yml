@@ -8,6 +8,10 @@ description:
 google_analytics:
 show_downloads: true
 theme: jekyll-theme-minimal
+jekyll_compose:
+  default_front_matter:
+    posts:
+      tags:
 plugins:
   - jekyll-mentions
   - jekyll-github-metadata
