@@ -18,13 +18,17 @@ layout: default
     {{ site.github.repository_url }}/issues/new?title={{ "[Comments] " | uri_escape }}{{ page.title | uri_escape }}
   {% endcapture %}
 {% endif %}
-<small><a href="{{ discussion_url }}">Comments?</a></small> |
+<small><a href="{{ discussion_url }}">comments?</a></small> |
 
 {% capture contribute_url %}
-{{ site.github.repository_url }}/edit/{{ site.github.source.branch }}{{ site.github.source.path }}{{ page.path }}
+  {{ site.github.repository_url }}/edit/{{ site.github.source.branch }}{{ site.github.source.path }}{{ page.path }}
 {% endcapture %}
-<small><a href="{{ contribute_url | rstrip }}">Contribute</a></small> |
+<small><a href="{{ contribute_url | rstrip }}">contribute</a></small> |
 
 {% if page.tags %}
-  <small>tags: <em>{{ page.tags | join: "</em>, <em>" }}</em></small>
+  <small>tags: 
+    {% for tag in page.tags %}
+      <a href="{% link content/posts-by-tag.html %}#{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+  </small>
 {% endif %}
