@@ -1,6 +1,7 @@
-_site/
-.sass-cache/
-.jekyll-metadata
-.bundle/
-Gemfile.lock
-vendor/
+# Hugo
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# OS
+.DS_Store

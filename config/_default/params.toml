@@ -1,0 +1,33 @@
+env = "production"
+description = "Notes, projects, and writing by @solvaholic."
+author = "solvaholic"
+defaultTheme = "auto"           # honors prefers-color-scheme
+disableThemeToggle = false
+ShowReadingTime = true
+ShowShareButtons = false
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowRssButtonInSectionTermList = true
+ShowToc = false
+comments = false
+
+[homeInfoParams]
+  Title = "Hi, I'm solvaholic 👋"
+  Content = """
+Engineer, writer, occasional yak-shaver. I build small useful things and
+write about how they came together. Browse [projects](/projects/) or
+[recent posts](/posts/).
+"""
+
+[[socialIcons]]
+  name = "github"
+  url = "https://github.com/solvaholic"
+
+[[socialIcons]]
+  name = "rss"
+  url = "/posts/index.xml"
+
+[assets]
+  disableHLJS = true
+  favicon = "/favicon.ico"
