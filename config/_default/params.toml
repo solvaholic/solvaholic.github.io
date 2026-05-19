@@ -1,5 +1,5 @@
 env = "production"
-description = "Notes, projects, and writing by @solvaholic."
+description = "Projects and writing by @solvaholic."
 author = "solvaholic"
 defaultTheme = "auto"           # honors prefers-color-scheme
 disableThemeToggle = false
@@ -12,12 +12,16 @@ ShowRssButtonInSectionTermList = true
 ShowToc = false
 comments = false
 
+# Drive what appears under the home info block. With "projects" only,
+# the home page features projects; posts remain at /posts/.
+mainSections = ["projects"]
+
 [homeInfoParams]
-  Title = "Hi, I'm solvaholic 👋"
+  Title = "Hi, I'm @solvaholic 👋"
   Content = """
-Engineer, writer, occasional yak-shaver. I build small useful things and
-write about how they came together. Browse [projects](/projects/) or
-[recent posts](/posts/).
+I build small, useful things and write about how they came together.
+Below: what I'm working on. Looking for writing instead? Head to
+[/posts/](/posts/).
 """
 
 [[socialIcons]]
