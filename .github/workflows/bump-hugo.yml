@@ -1,0 +1,50 @@
+name: Bump Hugo version
+
+on:
+  schedule:
+    - cron: '0 13 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Resolve latest Hugo version
+        id: latest
+        run: |
+          latest=$(curl -fsSL https://api.github.com/repos/gohugoio/hugo/releases/latest \
+            | jq -r '.tag_name' | sed 's/^v//')
+          echo "version=$latest" >> "$GITHUB_OUTPUT"
+
+      - name: Read current pinned version
+        id: current
+        run: |
+          current=$(grep -E '^\s*HUGO_VERSION:' .github/workflows/deploy.yml \
+            | head -1 | sed -E 's/.*:\s*//')
+          echo "version=$current" >> "$GITHUB_OUTPUT"
+
+      - name: Bump if newer
+        if: steps.latest.outputs.version != steps.current.outputs.version
+        env:
+          LATEST: ${{ steps.latest.outputs.version }}
+          CURRENT: ${{ steps.current.outputs.version }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          branch="bump-hugo-${LATEST}"
+          git checkout -b "$branch"
+          sed -i -E "s/^(\s*HUGO_VERSION:\s*).*/\1${LATEST}/" .github/workflows/deploy.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Bump Hugo ${CURRENT} -> ${LATEST}"
+          git push -u origin "$branch"
+          gh pr create \
+            --title "Bump Hugo ${CURRENT} -> ${LATEST}" \
+            --body "Automated bump of pinned Hugo version in deploy workflow." \
+            --base main
