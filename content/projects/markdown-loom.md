@@ -8,6 +8,7 @@ cover:
   image: "https://github.com/solvaholic/markdown-loom/raw/main/docs/demo.gif"
   alt: "Markdown Loom demo"
   relative: false
+  hiddenInList: true
 ---
 
 [Markdown Loom](https://github.com/solvaholic/markdown-loom) is a VS Code
