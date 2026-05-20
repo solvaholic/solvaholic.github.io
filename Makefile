@@ -3,7 +3,7 @@
 HUGO ?= hugo
 
 serve:
-	$(HUGO) server --buildDrafts --navigateToChanged
+	$(HUGO) server --buildDrafts --disableFastRender --navigateToChanged
 
 build:
 	$(HUGO) --minify
