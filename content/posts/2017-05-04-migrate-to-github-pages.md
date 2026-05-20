@@ -26,7 +26,6 @@ First I studied several examples provided in [_20 Amazing Examples of Using Medi
 
 Then, starting with [the Cayman theme for GitHub Pages](https://github.com/pages-themes/cayman), I added `assets/css/style.scss` to my repository:
 
-{% raw %}
 ```text
 ---
 ---
@@ -59,11 +58,9 @@ h3.post-block {
   margin-bottom: 0;
 }
 ```
-{% endraw %}
 
 Then I made a Recent Posts list for `index.html` using [some examples I found on stackoverflow.com](http://stackoverflow.com/questions/17890493/how-can-i-show-just-the-most-recent-post-on-my-home-page-with-jekyll):
 
-{% raw %}
 ```text
 {% if site.posts.size > 0 %}
     <ul class="posts-pane">
@@ -78,18 +75,17 @@ Then I made a Recent Posts list for `index.html` using [some examples I found on
     <p>No posts yet!</p>
 {% endif %}
 ```
-{% endraw %}
 
 Taking advantage of the pre-existing styles in GitHub Pages it was simple to dynamically arrange the post excerpts.
 
 # Importing content from WiX and Blogger
 I took these (with minor edits) from [solvaholic.blogspot.com](https://solvaholic.blogspot.com) and [WiX](http://mrwinans.wixsite.com/promiscuousideas) and posted them on my own blog, here, at [solvaholic.github.io](https://solvaholic.github.io/):
-* [Do I have to solve this problem?]({% post_url 2015-09-20-do-i-have-to-solve-this-problem %})
-* [What problem?]({% post_url 2015-09-21-what-problem %})
-* [Look at the tire]({% post_url 2015-09-22-look-at-the-tire %})
-* [Are you willing to be wrong?]({% post_url 2015-09-23-are-you-willing-to-be-wrong %})
-* [Which kind of ASS are UME?]({% post_url 2015-09-28-which-kind-of-ass-are-ume %})
-* [Why do we still have this problem?]({% post_url 2015-09-29-why-do-we-still-have-this-problem %})
+* [Do I have to solve this problem?]({{< ref "2015-09-20-do-i-have-to-solve-this-problem.md" >}})
+* [What problem?]({{< ref "2015-09-21-what-problem.md" >}})
+* [Look at the tire]({{< ref "2015-09-22-look-at-the-tire.md" >}})
+* [Are you willing to be wrong?]({{< ref "2015-09-23-are-you-willing-to-be-wrong.md" >}})
+* [Which kind of ASS are UME?]({{< ref "2015-09-28-which-kind-of-ass-are-ume.md" >}})
+* [Why do we still have this problem?]({{< ref "2015-09-29-why-do-we-still-have-this-problem.md" >}})
 
 These I took from [WiX](http://mrwinans.wixsite.com/promiscuousideas) straight to [Promiscuous Ideas](https://promiscuous-ideas.github.io):
 * [A flare for idea sex](https://promiscuous-ideas.github.io/2016/07/13/a-flare-for-idea-sex.html)

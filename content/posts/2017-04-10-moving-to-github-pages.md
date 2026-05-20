@@ -55,17 +55,17 @@ layout: post
 type: home
 ---
 
-{{ "{% if site.posts.size > 0 " }}%}
+{% if site.posts.size > 0 %}
     <ul>
-    {{ "{% for post in site.posts " }}%}
+    {% for post in site.posts %}
         <li>
-            <strong><a href="{{ "{{ post.url " }}}}">{{ post.title }}</a></strong> / <time datetime="{{ "{{ post.date | date_to_xmlschema " }}}}">{{ "{{ post.date | date: '%b %-d, %Y' " }}}}</time>
+            <strong><a href="{{ post.url }}">{{ post.title }}</a></strong> / <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time>
         </li>
-    {{ "{% endfor " }}%}
+    {% endfor %}
     </ul>
-{{ "{% else " }}%}
+{% else %}
     <p>No posts yet!</p>
-{{ "{% endif " }}%}
+{% endif %}
 ```
 
 * Create `/_posts` and add content to it with filenames like `2017-04-10-Post-Title.md` :

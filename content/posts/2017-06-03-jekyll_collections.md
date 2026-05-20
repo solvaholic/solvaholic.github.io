@@ -27,7 +27,7 @@ Here's what I did, to demonstrate Jekyll Collections:
           layout: post
     ```
 4. Create a page, e.g. `<source>/allcontent.md`, to display all the content in the collection
-    {% raw %}
+
     ```
     ---
     title: All the content in the collection
@@ -48,4 +48,3 @@ Here's what I did, to demonstrate Jekyll Collections:
         <p>No content in this collection yet!</p>
     {% endif %}
     ```
-    {% endraw %}

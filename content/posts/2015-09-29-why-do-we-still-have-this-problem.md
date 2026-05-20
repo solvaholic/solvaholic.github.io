@@ -10,7 +10,7 @@ As a problem solver, you have a limit - a threshold, a tolerance - for how many 
 When you tire of solving it, you'll eliminate the cause, or automate the solution.
 <!--more-->
 
-This is why when you see a problem that's new to you [you're tempted to assume no one else has tried to solve it]({% post_url 2015-09-28-which-kind-of-ass-are-ume %}).
+This is why when you see a problem that's new to you [you're tempted to assume no one else has tried to solve it]({{< ref "2015-09-28-which-kind-of-ass-are-ume.md" >}}).
 
 If it was a common problem then someone would surely have prevented it by now. Right?
 

@@ -24,7 +24,7 @@ He points to the [Jekyll documentation](http://jekyllrb.com/docs/github-pages/),
     - `https://github.com/owner/repo`
 - Configure GitHub Pages on `owner/repo`
     - The Repository's Pages URL is like `https://owner.github.io/repo`
-- [Create the Collection configuration in `_config.yml`]({{ site.github.url }}{% post_url 2017-06-03-jekyll_collections %}):
+- [Create the Collection configuration in `_config.yml`]({{ site.github.url }}{{< ref "2017-06-03-jekyll_collections.md" >}}):
     ```
     collections:
       coll-name:
@@ -55,7 +55,6 @@ If you want to see your changes before you publish them, render the site locally
 
 This can present a problem because it may work locally and fail when pushed to GitHub:
 
-{% raw %}
 ```text
 <ul>
 {% for a-page in site.coll-name %}
@@ -66,13 +65,11 @@ This can present a problem because it may work locally and fail when pushed to G
 {% endfor %}
 </ul>
 ```
-{% endraw %}
 
 That code will create a link to `/my-collection/a-file.html`, which won't work in `owner/repo` because it's missing `/repo` at the beginning. If you write in the `/repo` that won't work when you test locally.
 
 [One solution for this problem](http://jekyllrb.com/docs/github-pages/) is to write links using `site.github.url` to fill the beginning of the URL:
 
-{% raw %}
 ```
 <ul>
 {% for a-page in site.coll-name %}
@@ -83,6 +80,5 @@ That code will create a link to `/my-collection/a-file.html`, which won't work i
 {% endfor %}
 </ul>
 ```
-{% endraw %}
 
 That code will fill in the beginning of the URL when rendered on GitHub, and will leave it out when rendered locally.
