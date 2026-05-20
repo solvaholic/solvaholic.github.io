@@ -35,6 +35,15 @@ fi
 
 hugo new "posts/${date}-${slug}.md" > /dev/null
 
+# Fix up archetype-generated front matter: pass the actual title and a
+# clean slug instead of the kebab-cased filename derivation.
+escaped_title=$(printf '%s' "$title" | sed -e 's/[&\\]/\\&/g' -e 's/"/\\"/g')
+# macOS sed needs -i ''
+sed -i '' \
+  -e "s|^title: .*|title: \"${escaped_title}\"|" \
+  -e "s|^slug: .*|slug: \"${slug}\"|" \
+  "$post_path"
+
 # Append the session notes under a "## Notes" section.
 {
   echo
