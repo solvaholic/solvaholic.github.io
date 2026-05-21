@@ -4,6 +4,7 @@ date: 2026-05-20T14:40:00-04:00
 summary: "Git-powered snapshots for cloud drive folders. Invisible version control, zero copies - your files stay where they are, the history lives somewhere else."
 tags: ["git", "backup", "cli", "bash"]
 weight: 20
+
 ---
 
 [snap2git](https://github.com/solvaholic/snap2git) is a single-file Bash

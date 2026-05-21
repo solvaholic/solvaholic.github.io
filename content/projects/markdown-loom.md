@@ -3,7 +3,7 @@ title: "Markdown Loom"
 date: 2026-05-19T19:55:00-04:00
 summary: "VS Code extension for wiki-style linking and backlinks across plain Markdown notes. No proprietary formats, no sidecar database, just .md files."
 tags: ["vscode", "markdown", "notes", "wikilinks"]
-weight: 10
+weight: 30
 cover:
   image: "https://github.com/solvaholic/markdown-loom/raw/main/docs/demo.gif"
   alt: "Markdown Loom demo"
