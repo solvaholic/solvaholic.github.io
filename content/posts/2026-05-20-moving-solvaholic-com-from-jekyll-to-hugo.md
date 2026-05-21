@@ -3,7 +3,7 @@ title: "Moving solvaholic.com from Jekyll to Hugo"
 date: 2026-05-20T14:17:32-04:00
 slug: "moving-solvaholic-com-from-jekyll-to-hugo"
 tags: []
-draft: true
+draft: false
 ---
 
 After four years of benign neglect, solvaholic.com got a full rebuild: Jekyll out, Hugo in, GitHub Actions for deploys, and a setup designed to stay fresh without constant babysitting. GitHub Copilot handled the heavy lifting, and the site's new scaffolding tools already paid off - this post was drafted with them.
