@@ -2,11 +2,11 @@
 title: "Zero to AWS Certified in Ten Days"
 date: 2017-02-24T22:20:39-04:00
 slug: "zero-to-aws-certified-in-ten-days"
+summary: "You can get from \"Amazon Web Services is cloud stuff, yeah?\" to AWS capable and fluent - and Certified! - in ten days. Here's how."
 tags: ["how-to"]
 aliases: ["/2017/02/24/zero-to-aws-certified-in-ten-days/"]
 ---
-You can get from "Amazon Web Services is cloud stuff, yeah?" to AWS capable and fluent - and Certified! - in ten days. Here's how...
-<!-- more -->
+You can get from "Amazon Web Services is cloud stuff, yeah?" to AWS capable and fluent - and Certified! - in ten days. Here's how.
 
 I'm pretty good at figuring things out. Self-study and on-the-job training work for me. But whenever I've tried to crack Amazon Web Services that way I hit a giant wall of "Oh wow this is a lot of stuff."
 

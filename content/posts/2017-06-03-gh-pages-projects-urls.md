@@ -5,9 +5,8 @@ slug: "gh-pages-projects-urls"
 tags: ["notes", "gh-pages", "jekyll"]
 aliases: ["/2017/06/03/gh-pages-projects-urls/"]
 ---
-I used GitHub Pages' `site.github.public_repositories` to [list all my public Repositories](https://solvaholic.github.io/repos.html). I wanted to list pages in a [Collection](https://jekyllrb.com/docs/collections/) in a similar way for the [`solvahol/ghkb`](https://github.com/solvahol/ghkb) project. Because [GitHub Pages addresses the project as a subdirectory](https://help.github.com/articles/user-organization-and-project-pages/) of the owner's Pages site, this was less straightforward than I expected.
+I used GitHub Pages' `site.github.public_repositories` to [list all my public Repositories](https://github.com/solvaholic?tab=repositories&q=&type=public). I wanted to list pages in a [Collection](https://jekyllrb.com/docs/collections/) in a similar way for the [`solvahol/ghkb`](https://github.com/solvahol/ghkb) project. Because [GitHub Pages addresses the project as a subdirectory](https://help.github.com/articles/user-organization-and-project-pages/) of the owner's Pages site, this was less straightforward than I expected.
 
-<!--more-->
 Here are my notes about what I found and how I made sense of it. Here's the general solution I arrived at:
 
 1. Create a project Repository on GitHub, configured to serve GitHub Pages

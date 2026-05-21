@@ -7,7 +7,6 @@ aliases: ["/2017/06/03/jekyll_collections/"]
 ---
 Jekyll's Collections provide powerful tools to organize content. Ben Balter put together [an excellent write-up about using Collections with Jekyll](http://ben.balter.com/2015/02/20/jekyll-collections/). And [the Jekyll documentation](https://jekyllrb.com/docs/collections/) is super helpful as well.
 
-<!--more-->
 Here's what I did, to demonstrate Jekyll Collections:
 
 1. Create the collection folder, `<source>/_my_collection_name`

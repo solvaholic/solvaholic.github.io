@@ -23,4 +23,3 @@ I'm excited about the uncertainty our future promises.
 [The link I saved]: http://courses.jonesinternational.edu/private/jiu/media/pdf/edu545/edu545_action_mapping.pdf
 [_Action Mapping: A Planning Tool for Change. HSLA Monograph._]: https://eric.ed.gov/?id=ED444266
 [_The New Leadership Literacies_]: https://www.iftf.org/newleadershipliteracies
-[_Comments?_]: https://github.com/solvaholic/solvaholic.github.io/issues/new?title=%5BFeedback%5D%20Title%20of%20a%20Post

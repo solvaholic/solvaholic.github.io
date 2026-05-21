@@ -8,7 +8,6 @@ aliases: ["/2017/04/15/project-repo-template/"]
 "Hey, we should &lt;bright idea&gt;!"
 
 When we write that idea down there are several questions we'll want to answer before we do much else with it. When we make a Repository on GitHub for one of these bright ideas, we can populate some Issues and a Project by default.
-<!--more-->
 
 ## A project template includes ...
 

@@ -6,7 +6,6 @@ tags: ["notes"]
 aliases: ["/2017/05/04/migrate-to-github-pages/"]
 ---
 In July 2016 I put a blog up [on WiX at promiscuousideas.com](http://mrwinans.wixsite.com/promiscuousideas). I loved the easy-to-use interface, huge feature set, and beautiful templates. I've thought and learned a lot since then about what I want promiscuousideas.com and idsx.co to do, and it's time to move them to GitHub.
-<!--more-->
 
 # A few of my favorite things
 [The WiX site](http://mrwinans.wixsite.com/promiscuousideas) has a huge blue block up top that shouts at visitors:

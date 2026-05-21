@@ -7,8 +7,6 @@ aliases: ["/2021/08/23/github-pages/"]
 ---
 Coming back to GitHub Pages after nearly four years has been fun. And educational. Spending a little time around Ruby, and a lot of time around GitHub, has filled in some illuminating perspective.
 
-<!--more-->
-
 Here are my notes about getting going with GitHub Pages. Again. This time.
 
 ## Use Homebrew

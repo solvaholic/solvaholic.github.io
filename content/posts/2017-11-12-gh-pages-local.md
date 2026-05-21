@@ -2,12 +2,11 @@
 title: "Set up your GitHub Pages site locally"
 date: 2017-11-12T00:00:01-04:00
 slug: "gh-pages-local"
+summary: "These are my notes about setting up your GitHub Pages site locally."
 tags: ["gh-pages"]
 aliases: ["/2017/11/12/gh-pages-local/"]
 ---
 These are my notes about setting up your GitHub Pages site locally...
-
-<!--more-->
 
 See also: [GitHub's _Setting up your GitHub Pages site locally with Jekyll_ guide](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#platform-linux).
 

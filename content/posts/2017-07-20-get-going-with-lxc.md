@@ -7,7 +7,6 @@ aliases: ["/2017/07/20/Get-going-with-LXC/"]
 ---
 This summer I started learning about Kubernetes. Once it's up and running, [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) is an orchestration layer that makes it really super straightforward to do rapid deployment, high availability, and scalability with Linux containers. That sounds fantastic! But .. what's a Linux container? and can they be useful without Kubernetes?
 
-<!--more-->
 (edited and reposted on 7 Oct 2017)
 
 

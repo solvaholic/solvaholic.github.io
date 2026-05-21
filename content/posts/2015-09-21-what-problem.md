@@ -2,11 +2,11 @@
 title: "What problem?"
 date: 2015-09-21T00:00:00-04:00
 slug: "what-problem"
+summary: "It's tempting to treat problems as individual transactions. Cut into bite-sized pieces, problems look like this..."
 tags: ["solvahol", "notes"]
 aliases: ["/2015/09/21/what-problem/"]
 ---
-It's tempting to treat problems as individual transactions. Cut into bite-sized pieces, problems look like this...
-<!--more-->
+It's tempting to treat problems as individual transactions. Cut into bite-sized pieces, problems look like this:
 
 * I did &lt;something&gt;.
 * I expected &lt;that&gt; to happen.

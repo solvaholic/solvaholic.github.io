@@ -2,11 +2,11 @@
 title: "Solvaholic's Dragon"
 date: 2017-05-08T05:20:00-04:00
 slug: "solvaholic-dragon"
+summary: "Where did that stunning blue and gold dragon come from? And why is it eating its tail?"
 tags: ["notes", "about"]
 aliases: ["/2017/05/08/solvaholic-dragon/"]
 ---
 Where did that stunning blue and gold dragon come from? And why is it eating its tail?
-<!--more-->
 
 ![Blue and gold dragon eating its tail](https://s3.amazonaws.com/solvaholic/images/solvaholic-dragon.jpg "Solvaholic's Dragon")
 
