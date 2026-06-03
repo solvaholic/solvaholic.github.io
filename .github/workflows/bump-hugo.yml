@@ -25,8 +25,7 @@ jobs:
       - name: Read current pinned version
         id: current
         run: |
-          current=$(grep -E '^\s*HUGO_VERSION:' .github/workflows/deploy.yml \
-            | head -1 | sed -E 's/.*:\s*//')
+          current=$(cat .hugo-version)
           echo "version=$current" >> "$GITHUB_OUTPUT"
 
       - name: Bump if newer
@@ -39,12 +38,12 @@ jobs:
           set -euo pipefail
           branch="bump-hugo-${LATEST}"
           git checkout -b "$branch"
-          sed -i -E "s/^(\s*HUGO_VERSION:\s*).*/\1${LATEST}/" .github/workflows/deploy.yml
+          echo "${LATEST}" > .hugo-version
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "Bump Hugo ${CURRENT} -> ${LATEST}"
           git push -u origin "$branch"
           gh pr create \
             --title "Bump Hugo ${CURRENT} -> ${LATEST}" \
-            --body "Automated bump of pinned Hugo version in deploy workflow." \
+            --body "Automated bump of pinned Hugo version in \`.hugo-version\`." \
             --base main

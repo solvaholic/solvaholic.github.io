@@ -14,23 +14,23 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-env:
-  HUGO_VERSION: 0.161.1
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set Hugo version
+        run: echo "HUGO_VERSION=$(cat .hugo-version)" >> "$GITHUB_ENV"
+
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb \
             https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
           sudo dpkg -i ${{ runner.temp }}/hugo.deb
-
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
 
       - name: Setup Go (for Hugo modules)
         uses: actions/setup-go@v6
