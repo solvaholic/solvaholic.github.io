@@ -1,0 +1,18 @@
+---
+title: "Creating Para Quest Notes: Prototype by Hand, Then Let the Evals Teach You"
+date: 2026-06-04T20:28:35-04:00
+slug: "2026-06-04-creating-para-quest-notes"
+summary: "A local-first notes toolkit that pairs the PARA method with a quest model for prioritization. I prototyped the workflows by hand before writing code, then used eval failures to actually understand the code Copilot and I wrote together."
+tags: ["notes", "para", "prototyping", "llm", "copilot", "local-first"]
+draft: false
+---
+
+[para-quest-notes](https://github.com/solvaholic/para-quest-notes) is a set of local, scripted workflows for managing markdown notes with small LLMs running on your own machine. What I keep coming back to isn't the code - it's the *idea* underneath it: pairing the PARA method (is this a Project, Area, Resource, or Archive?) with a Quest model (does this serve a Main Quest, a Side Quest, or a time-bound Project that advances one?). Filing a note becomes a small act of prioritization, not just tidying. That's the part I wanted to get right.
+
+---
+
+The thing I'm proudest of process-wise is that I didn't start by writing workflows. I ran them by hand first. Before `pqn-ingest` existed as code, I sat with a vault and an LLM and manually did what the tool would eventually do: read an inbox note, decide its PARA type, pick a Quest, propose a filename, work out where it should land. Doing it manually forced the workflow to be legible to me before it was legible to a machine. I learned which decisions were genuinely natural-language judgment calls and which were just rules I'd been too lazy to write down. That's why the design principle "scripts are the brains, LLMs only do what scripts can't" isn't an aspiration bolted on afterward - it fell out of watching, by hand, how little of the work actually needed a model. Plain Python files the note; the LLM only weighs in when the rules run out.
+
+The second surprise has been how much I'm learning *from the evals*, especially the failures. The repo has a per-step eval harness that runs each workflow step across a matrix of models and prompts and judges the output. When a cell fails, the interesting question is *why* - and chasing that down has been the best way to understand code that Copilot and I wrote together. One recent failure cluster is a perfect example: the `pick_quest` prompt was rendering choices with a `(kind)`m like `Health (main)`, but the validator only accepts the bare name, like `Health`. The model dutifully copied the label it was shown and got marked wrong - a schema-format mismatch masquerading as a reasoning failure. The fix was to stop showing the model a format the validator wouldn't accept. I'd never have noticed that by reading the code; the eval surfaced it, and fixing it taught me how the prompt surface and the validator's accepted output space have to agree.
+
+So a lot of the current work is unglamorous and exactly right: tightening eval fixtures, splitting fixtures that conflate cases, adding acceptable answers the judge was too strict about, making a "resource" fixture actually read like a resource note. Each fixture I sharpen is a little more of the system I now actually understand, rather than trust on faith. The tool is at `v0.1.1` with all five `pqn-*` CLIs shipped, but the evals are where I'm still doing my real learning. If you want to poke at it, the [README quickstart](https://github.com/solvaholic/para-quest-notes#quickstart-end-to-end-against-the-sample-vault) walks all five workflows against a throwaway sample vault, and [docs/notes-system.md](https://github.com/solvaholic/para-quest-notes/blob/main/docs/notes-system.md) lays out the PARA + Quest model that started the whole thing.
