@@ -28,8 +28,38 @@ jobs:
           current=$(cat .hugo-version)
           echo "version=$current" >> "$GITHUB_OUTPUT"
 
-      - name: Bump if newer
+      - name: Check for existing bump PRs
+        id: check
         if: steps.latest.outputs.version != steps.current.outputs.version
+        env:
+          LATEST: ${{ steps.latest.outputs.version }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # If there's already an open PR for the latest version, skip
+          existing=$(gh pr list --head "bump-hugo-${LATEST}" --state open \
+            --json number --jq '.[0].number // empty')
+          if [[ -n "$existing" ]]; then
+            echo "::notice::PR #${existing} already open for Hugo ${LATEST}"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Close any open bump PRs for older versions
+          gh pr list --state open --json number,headRefName \
+            --jq '.[] | select(.headRefName | startswith("bump-hugo-"))
+                  | [.number, .headRefName] | @tsv' \
+          | while IFS=$'\t' read -r num branch; do
+              echo "::notice::Closing PR #${num} (${branch}), superseded by Hugo ${LATEST}"
+              gh pr close "$num" --comment "Superseded by Hugo ${LATEST}."
+              git push origin --delete "$branch" 2>/dev/null || true
+            done
+
+      - name: Bump if newer
+        if: >-
+          steps.latest.outputs.version != steps.current.outputs.version
+          && steps.check.outputs.skip != 'true'
         env:
           LATEST: ${{ steps.latest.outputs.version }}
           CURRENT: ${{ steps.current.outputs.version }}
