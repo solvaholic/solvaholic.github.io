@@ -17,29 +17,33 @@ The organizing idea is to layer a **Quest** model on top of the **PARA** method.
 
 1. **Local first.** No cloud LLM calls. Notes never leave your machine.
 2. **Scripts are the brains.** LLMs only do what scripts can't: judgment calls and natural-language summarization.
-3. **Small models welcome.** Targeted at models that fit on a laptop (Granite4.1, Gemma4, Qwen3.6, Phi4).
+3. **Small models welcome.** Targeted at models that fit on a laptop (Granite 4, Gemma 3, Qwen 3, Phi-4 reasoning, etc.).
 4. **CLI first, agent-friendly.** Every workflow is a CLI you can pipe and cron, with structured JSON output as a first-class citizen - so an agent can wrap a workflow without ever seeing your note bodies.
-5. **Bring your own vault.** Install once, then run against any vault on disk.
+5. **Bring your own vault.** Install once with `pipx`/`uv tool install`, then run against any vault on disk.
 
 ## The workflows
 
-Five `pqn-*` CLIs cover the note lifecycle, most of them needing no LLM at all:
+Nine `pqn-*` CLIs cover the note lifecycle, most of them needing no LLM at all:
 
 - `pqn-validate` - read-only audit for duplicate basenames and malformed front/backmatter (no LLM)
 - `pqn-ingest` - triage `inbox/` notes into their PARA + Quest home, rewriting wikilinks on rename (LLM)
 - `pqn-create` - file a single new note with frontmatter pre-populated (no LLM)
 - `pqn-daily` - drop a daily note into `resources/daily_notes/` (no LLM)
 - `pqn-archive` - close out a Project, optionally letting the LLM draft the `## Outcome` (LLM)
+- `pqn-quests` - generate a Quest index, grouping Areas and Projects by the Quest(s) they support, and ranking Resources by incoming links (no LLM)
+- `pqn-tasks` - read-only reporter for scheduled or due tasks (no LLM)
+- `pqn-search` - PARA + Quest-aware keyword search over title and content, ranking Resources by inbound links (no LLM)
+- `pqn-config` - read-only inspector for the effective configuration with per-value provenance (no LLM)
 
 Every CLI defaults to a dry-run, shares a uniform exit-code contract, and writes a JSONL trace you can read after the fact to see exactly which prompt produced which decision.
 
 ## Status
 
-At `v0.1.1`, with all five workflows shipped and a per-step eval harness in place. Current work (Phase 7) is growing the eval fixtures toward ~30 and revisiting the `generate_outcome` judge. The CLIs and JSON contracts are settling toward stability - names won't change.
+At `v0.5.0`, the CLI surface and JSON contracts are stable. Current work (Phase 7) is growing the evaluation fixtures and revisiting the `generate_outcome` judge.
 
 ## Links
 
 - **Source**: [solvaholic/para-quest-notes](https://github.com/solvaholic/para-quest-notes)
 - **The model**: [docs/notes-system.md](https://github.com/solvaholic/para-quest-notes/blob/main/docs/notes-system.md)
 - **How the evals work**: [docs/eval.md](https://github.com/solvaholic/para-quest-notes/blob/main/docs/eval.md)
-- **Try it**: the [README quickstart](https://github.com/solvaholic/para-quest-notes#quickstart-end-to-end-against-the-sample-vault) runs all five CLIs against a throwaway sample vault
+- **Try it**: the [README quickstart](https://github.com/solvaholic/para-quest-notes#quickstart-end-to-end-against-the-sample-vault) runs all eight core CLIs against a throwaway sample vault
