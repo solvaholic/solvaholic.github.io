@@ -18,22 +18,16 @@ formats, no sidecar database, just markdown.
 
 ## What's in it
 
-- **Wikilinks**: type `[[` to autocomplete from any `.md` in your
-  workspace. Cmd/Ctrl+click to jump. `[[Note|Alias]]` for aliased link
-  text. Rendered as clickable links in the Markdown preview.
-- **Click-to-create**: clicking a `[[link]]` to a missing note offers
-  to create it (configurable: prompt / auto / never), with a
-  configurable location.
-- **Section and block refs**: `[[Note#Heading]]` and `[[Note#^blockid]]`
-  resolve in the editor and the preview.
-- **Backlinks panel**: shows every note that links to the active file,
-  grouped by source with line previews. Refreshes on file switch and on
-  save.
-- **Filename collisions surface as warnings**: when a bare `[[Foo]]`
-  matches multiple notes, navigation picks one winner via a
-  same-folder tiebreaker, and the others are flagged ambiguous so you
-  can spot and resolve.
-- **Rename-aware**: links are rewritten when VS Code renames a file.
+- **Wikilinks**: type `[[` to autocomplete from any `.md` or configured non-markdown files (like `.pdf` or `.png`) in your workspace. Cmd/Ctrl+click to jump. Supports `[[Note|Alias]]` for aliased link text. Rendered as clickable links in the Markdown preview.
+- **Hover previews**: hover over a `[[link]]` to preview the target markdown note inline.
+- **Click-to-create**: clicking a `[[link]]` to a missing note offers to create it (configurable: prompt / auto / never), with a configurable new-note location.
+- **Paste files as attachments**: copy any file from Finder/Explorer and paste it (`Cmd/Ctrl+V`) directly into a markdown editor to copy it into your workspace and insert a wikilink.
+- **Section and block refs**: `[[Note#Heading]]` and `[[Note#^blockid]]` resolve in the editor and the preview.
+- **Backlinks panel**: shows every note that links to the active file, grouped by source with line previews. Refreshes on file switch and on save.
+- **Filename collisions surface as warnings**: when a bare `[[Foo]]` matches multiple notes, navigation picks one winner via a same-folder tiebreaker, and the others are flagged as ambiguous with a warning icon in the backlinks panel so you can spot and resolve the collision.
+- **Rename-aware**: links are rewritten automatically when VS Code renames a file.
+- **Find unresolved wikilinks**: run `Markdown Loom: Show Unresolved Wikilinks` to spot dead links.
+- **Inspect the index**: run `Markdown Loom: Show Index Status` to see indexed note counts and paths.
 
 ## Why another note-taking extension?
 
